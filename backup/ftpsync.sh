@@ -28,8 +28,8 @@ then
   exit 1;
 fi
 
-if [ -e "$LOCALDIR" ]
-then
+echo "backup $LOCALDIR on $LOGIN@$HOST:$REMOTEDIR"
+  echo -e "Sauvegarde en cours"
   lftp -c "set ftp:ssl-allow no;
   open ftp://$LOGIN:$PASSWORD@$HOST; 
   lcd $LOCALDIR;
@@ -38,4 +38,3 @@ then
          --delete \
          --verbose \
          --exclude-glob $EXCLUDED";
-fi
