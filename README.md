@@ -6,3 +6,9 @@ Ce dépôt contient des scripts qui aident l'administration.
 ```sh
 ftpsync.sh <ftp_host:ftp_port> <login> <pwd> <local_dir> <distant_dir>
 ```
+
+## update linux with apt
+
+```sh
+updateUbuntu.sh
+```
