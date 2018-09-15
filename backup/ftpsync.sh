@@ -15,7 +15,7 @@ APP_SRC_PATH="/var/data"
 APP_VOLUMES=('vol1' 'vol2')
 EXCLUDED="*.*~"
 BACKUP_TYPE=''
-if [ $(date +%A) == "Friday" -o $(date +%A) == "Wednesday" ]
+if [ $(date +%A) == "Sunday" ]
 then
   BACKUP_TYPE=$(date +%A);
 else
