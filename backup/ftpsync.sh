@@ -13,7 +13,7 @@ BACKUP_FTP_LOGIN="userFtp"
 BACKUP_FTP_PWD="userPwd"
 APP_SRC_PATH="/var/data"
 APP_VOLUMES=('vol1' 'vol2')
-EXCLUDED="*.*~"
+EXCLUDED="--exclude-glob *.*~"
 BACKUP_TYPE=''
 if [ $(date +%A) == "Sunday" ]
 then
@@ -52,7 +52,11 @@ then
    if [ ! -z $6 ]
    then
       BACKUP_FTP_PATH=$6
-   fi   
+   fi 
+   if [ ! -z $7 ]
+   then
+      EXCLUDED=$7
+   fi  
 fi
 echo BACKUP_FTP_HOST=$BACKUP_FTP_HOST
 echo BACKUP_FTP_PATH=$BACKUP_FTP_PATH
@@ -61,6 +65,7 @@ echo BACKUP_FTP_LOGIN=$BACKUP_FTP_LOGIN
 echo APP_SRC_PATH=$APP_SRC_PATH
 echo APP_VOLUMES=${APP_VOLUMES[*]}
 echo BACKUP_TYPE=$BACKUP_TYPE
+echo EXCLUDED=$EXCLUDED
 echo -e "Init param finished\n"
 
 
@@ -75,5 +80,5 @@ do
   mirror --reverse \
          --delete \
          --verbose \
-         --exclude-glob $EXCLUDED";
+         $EXCLUDED";
 done
