@@ -77,8 +77,5 @@ do
   mkdir -pf $BACKUP_FTP_PATH/$BACKUP_TYPE/$volume;
   lcd $APP_SRC_PATH/$volume;
   cd $BACKUP_FTP_PATH/$BACKUP_TYPE/$volume;
-  mirror --reverse \
-         --delete \
-         --verbose \
-         $EXCLUDED";
+  mirror --reverse --long --delete --verbose $EXCLUDED";
 done
