@@ -8,5 +8,6 @@ then
 fi
 
 echo "Update $HOST"
-apt-get update
-apt-get upgrade -y
+apt update
+apt upgrade -y
+apt autoremove --purge -y
