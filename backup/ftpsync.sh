@@ -72,7 +72,7 @@ echo -e "Init param finished\n"
 for volume in ${APP_VOLUMES[@]}
 do 
   echo "backup $APP_SRC_PATH/$volume sur $BACKUP_FTP_LOGIN@$BACKUP_FTP_HOST/$BACKUP_FTP_PATH/$BACKUP_TYPE";
-  lftp -d -c "set ssl:verify-certificate no;
+  lftp -d -c "set ftp:prefer-epsv yes; set ftp:passive-mode off; set ssl:verify-certificate no;
   open ftp://$BACKUP_FTP_LOGIN:$BACKUP_FTP_PWD@$BACKUP_FTP_HOST; 
   mkdir -pf $BACKUP_FTP_PATH/$BACKUP_TYPE/$volume;
   lcd $APP_SRC_PATH/$volume;
