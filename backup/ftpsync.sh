@@ -72,6 +72,9 @@ echo -e "Init param finished\n"
 for volume in ${APP_VOLUMES[@]}
 do 
   echo "backup $APP_SRC_PATH/$volume sur $BACKUP_FTP_LOGIN@$BACKUP_FTP_HOST/$BACKUP_FTP_PATH/$BACKUP_TYPE";
-echo 'iciciiiiiiiiiiiiii=====================****************************************'
-rclone sync -vv $APP_SRC_PATH/$volume lixtec_home:/$BACKUP_FTP_PATH/$BACKUP_TYPE
+  export RCLONE_CONFIG_LIXTEC_HOME_TYPE=ftp
+  export RCLONE_CONFIG_LIXTEC_HOME_USER=$BACKUP_FTP_LOGIN
+  export RCLONE_CONFIG_LIXTEC_HOME_PASS=`rclone obscure $BACKUP_FTP_PWD`
+  export RCLONE_CONFIG_LIXTEC_HOME_HOST=$BACKUP_FTP_HOST
+  rclone sync -vv $APP_SRC_PATH/$volume lixtec_home:/$BACKUP_FTP_PATH/$BACKUP_TYPE
 done
