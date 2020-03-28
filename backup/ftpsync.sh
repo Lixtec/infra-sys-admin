@@ -77,5 +77,5 @@ do
   export RCLONE_CONFIG_LIXTEC_HOME_PASS=`rclone obscure $BACKUP_FTP_PWD`
   export RCLONE_CONFIG_LIXTEC_HOME_HOST=$BACKUP_FTP_HOST
   export RCLONE_CONFIG_LIXTEC_HOME_CONCURRENCY=4
-  rclone sync -vv $APP_SRC_PATH/$volume lixtec_home:/$BACKUP_FTP_PATH/$BACKUP_TYPE
+  rclone sync -vv $APP_SRC_PATH/$volume lixtec_home:/$BACKUP_FTP_PATH/$BACKUP_TYPE/$volume
 done
