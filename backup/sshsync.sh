@@ -67,5 +67,5 @@ echo -e "Init param finished\n"
 for volume in ${APP_VOLUMES[@]}
 do 
   echo "backup $APP_SRC_PATH/$volume sur $BACKUP_SSH_LOGIN@$BACKUP_SSH_HOST:$BACKUP_SSH_PATH/$BACKUP_TYPE/$volume";
-  sshpass -p$BACKUP_SSH_PWD rsync -auv --delete -e="ssh -p$BACKUP_SSH_PORT" $APP_SRC_PATH/$volume $BACKUP_SSH_LOGIN@$BACKUP_SSH_HOST:$BACKUP_SSH_PATH/$BACKUP_TYPE/$volume
+  sshpass -p$BACKUP_SSH_PWD rsync -auv --delete -e="ssh -p$BACKUP_SSH_PORT" $APP_SRC_PATH/$volume/ $BACKUP_SSH_LOGIN@$BACKUP_SSH_HOST:$BACKUP_SSH_PATH/$BACKUP_TYPE/$volume/
 done
